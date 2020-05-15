@@ -1,0 +1,20 @@
+[
+  {
+    "q": "How much does that shit cost?",
+    "cor": "A",
+    "ans": {
+      "A": "Too much",
+      "B": "Not so much",
+      "C": "Well",
+      "D": "Ok"
+    }
+  },
+  {
+    "q": "How much does that shit cost?",
+    "cor": "B",
+    "ans": {
+      "A": "Too much",
+      "B": "Not so much"
+    }
+  }
+]
