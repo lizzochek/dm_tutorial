@@ -13,36 +13,40 @@ const clearScreen = () => write('\x1Bc');
 
 let firstLine = 0, lastLine = 23;
 
-const info = () =>
-  write(`:\u001b[30m\u001b[47mLINES ${firstLine}-${lastLine} [TO EXIT PRESS ENTER]`);
+const info = isEnd => {
+  if (!isEnd)
+    write(`:\u001b[30m\u001b[47mLINES ${firstLine}-${lastLine}`);
+  else
+    write(`:\u001b[30m\u001b[47mEND [TO EXIT PRESS ENTER]`);
+};
 
-const showContents = () => {
+const showContents = isEnd => {
+  clearScreen();
   for (let i = firstLine; i < lastLine; i++)
     write(`${file[i]}\n`);
-  info();
+  info(isEnd);
 };
 
 const scroll = data => {
   const key = data[0];
-  if (data.length > 1) {
+  if (data.length === 3) {
     const secKey = data[1];
     const lastKey = data[2];
     if (key === 27 && secKey === 91) {
       if (lastKey === 65) {
         if (firstLine > 0) {
-          clearScreen();
           --firstLine;
           --lastLine;
-          showContents();
+          showContents(false);
         }
       }
       if (lastKey === 66) {
-        if (lastLine < file.length) {
-          clearScreen();
+        if (lastLine < file.length - 1) {
           ++firstLine;
           ++lastLine;
-          showContents();
-        }
+          showContents(false);
+        } else
+            showContents(true);
       }
     }
   }
@@ -57,4 +61,3 @@ showContents();
 process.stdin.on('data', data => {
   scroll(data);
 });
-
