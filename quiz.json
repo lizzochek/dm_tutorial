@@ -1,6 +1,6 @@
 [
   {
-    "q": "How much does that shit cost?",
+    "q": "How much does that cost?",
     "cor": "A",
     "ans": {
       "A": "Too much",
@@ -10,7 +10,7 @@
     }
   },
   {
-    "q": "How much does that shit cost?",
+    "q": "How much does that cost?",
     "cor": "B",
     "ans": {
       "A": "Too much",
