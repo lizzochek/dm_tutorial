@@ -1,22 +1,19 @@
 'use strict'
 
-const showLecture = require('./lib/doc_viewer.js');
-const showQuiz = require('./lib/quiz.js');
+const child_process = require('child_process');
 
-const path = require('path').resolve(__dirname, './progress.json');
-const file = require('fs').readFileSync(path, 'utf8');
-const progress = JSON.parse(file);
+const child = child_process.spawn('less', ['./lib/quiz.js'],
+ { shell: true });
 
-function show(arr) {
-    for(let obj of arr) {
-        console.log(obj);
-        if(obj.progress === "false") {
-            console.log(obj.progress);
-            if(!obj.isQuiz) {
-                await showLecture(obj.path);
-                obj.progress = true;
-            } else await showQuiz(obj.path);
-        }
-    }
-}
-show(progress);
+child.stdout.on('data', data => {
+  process.stdout.write(data);
+});
+
+process.stdin.on('data', data => {
+  child.stdin.write(`${data}\n`);
+});
+
+child.on('close', (code) => {
+  console.log(`child process exited with code ${code}`);
+  process.exit(0);
+});
