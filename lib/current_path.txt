@@ -1,1 +1,1 @@
-/home/liza/Documents/Университет/Programming/DM_tutorial/dm_tutorial/db/Semester 1/lecture1/quiz.js
+/home/liza/Documents/Uni/Programming/dm_tutorial/db/Semester1/introduction/introductory_lection.txt

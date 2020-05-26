@@ -18,7 +18,10 @@ function childProcessor(isQuiz) {
   });
   
   child.on('close', (code) => {
-    increment(index);
+    process.stdin.removeAllListeners('data');
+    process.stdout.removeAllListeners('data');
+    fs.writeFileSync('./progress.json', JSON.stringify(progress));
+    increment();
   });
 }
 
@@ -26,12 +29,17 @@ const path = require('path').resolve(__dirname, './progress.json');
 const file = require('fs').readFileSync(path, 'utf8');
 const progress = JSON.parse(file);
 
+const getFullPath = path =>
+  require('path').resolve(__dirname, path);
+
 let index = 0;
 
-function increment(index) {
-  if(index < progress.legth) {
+function increment() {
+  if(index < progress.length) {
+    progress[index][progress] = true;
     let obj = progress[index];
-    fs.writeFileSync('./lib/current_path.txt', obj.path);
+    let fullPath = getFullPath(obj.path);
+    fs.writeFileSync('./lib/current_path.txt', fullPath);
     if(obj.isQuiz) {
       childProcessor(true);
     } else childProcessor(false);
