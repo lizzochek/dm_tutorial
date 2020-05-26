@@ -40,9 +40,7 @@ function increment() {
     let obj = progress[index];
     let fullPath = getFullPath(obj.path);
     fs.writeFileSync('./lib/current_path.txt', fullPath);
-    if(obj.isQuiz) {
-      childProcessor(true);
-    } else childProcessor(false);
+    childProcessor(obj.isQuiz);
     index++;
   }
 }
