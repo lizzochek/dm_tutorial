@@ -1,12 +1,16 @@
-'use strict'
+'use strict';
 
-const fs = require("fs");
-const child_process = require('child_process');
+const fs = require('fs');
+const childProcess = require('child_process');
+
+const path = require('path').resolve(__dirname, './progress.json');
+const file = require('fs').readFileSync(path, 'utf8');
+const progress = JSON.parse(file);
 
 function childProcessor(isQuiz) {
 
   const way = (isQuiz) ? './lib/quiz.js' : './lib/doc_viewer.js';
-  let child = child_process.spawn('node', [way],
+  const child = childProcess.spawn('node', [way],
     { shell: true });
 
   child.stdout.on('data', data => {
@@ -17,7 +21,7 @@ function childProcessor(isQuiz) {
     child.stdin.write(`${data}\n`);
   });
 
-  child.on('close', (code) => {
+  child.on('close', code => {
     process.stdin.removeAllListeners('data');
     process.stdout.removeAllListeners('data');
     fs.writeFileSync('./progress.json', JSON.stringify(progress));
@@ -25,9 +29,6 @@ function childProcessor(isQuiz) {
   });
 }
 
-const path = require('path').resolve(__dirname, './progress.json');
-const file = require('fs').readFileSync(path, 'utf8');
-const progress = JSON.parse(file);
 
 const getFullPath = path =>
   require('path').resolve(__dirname, path);
