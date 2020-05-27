@@ -2,8 +2,9 @@
 
 The program is designed for learning the basics of discrete maths.
 
-[Русская версия](https://github.com/lizzochek/dm_tutorial/README_RU.md)
-#Usage
+[Русская версия](https://github.com/lizzochek/dm_tutorial/blob/master/README_RU.md)
+
+# Usage
 
 In order to open the program go to `$PATH/dm_tutorial`, where `$PATH` — path
 to the dm_tutorial directory. Then write 
@@ -20,7 +21,7 @@ the next question to appear.
 To exit press `Ctrl+C`. The next time you open the program you will be shown the lecture 
 of quiz you you haven't passed yet.
 
-##Starting again
+## Starting again
 
 To start any other lection or quiz again go to the `$PATH/dm_tutorial/progress.json`, where 
 `$PATH` — path to the dm_tutorial directory, and change the progress of the needed part to
