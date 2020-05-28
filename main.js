@@ -9,7 +9,7 @@ const progress = JSON.parse(file);
 
 function childProcessor(isQuiz) {
 
-  const way = (isQuiz) ? './lib/quiz.js' : './lib/doc_viewer.js';
+  const way = `./lib/${isQuiz ? 'quiz' : 'doc_viewer'}.js`;
   const child = childProcess.spawn('node', [way],
     { shell: true });
 
