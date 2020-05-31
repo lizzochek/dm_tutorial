@@ -21,7 +21,7 @@ the next question to appear.
 To exit press `Ctrl+C`. The next time you open the program you will be shown the lecture 
 of quiz you you haven't passed yet.
 
-## Starting again
+## Starting a lecture again
 
 To start any other lection or quiz again go to the `$PATH/dm_tutorial/progress.json`, where 
 `$PATH` — path to the dm_tutorial directory, and change the progress of the needed part to
@@ -34,4 +34,12 @@ the `progress` field in the object which has a pass to this lecture:
         "isQuiz": false,
         "progress": false
     }
+```
+
+## Discarding progress
+
+If you want to discard your progress and start again go to `$PATH/dm_tutorial`, where `$PATH` — path
+to the dm_tutorial directory. Then write 
+```bash
+$ node progress_discard.js
 ```
