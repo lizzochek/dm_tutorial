@@ -50,6 +50,6 @@ function increment() {
     fs.writeFileSync('./lib/current_path.txt', fullPath);
     childProcessor(obj.isQuiz);
     index++;
-  }
+  } else process.exit(0)
 }
 increment();
