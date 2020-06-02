@@ -38,8 +38,9 @@ the `progress` field in the object which has a pass to this lecture:
 
 ## Discarding progress
 
-If you want to discard your progress and start again go to `$PATH/dm_tutorial`, where `$PATH` — path
-to the dm_tutorial directory. Then write 
+If you want to start from the lecture you previously tried to complete  go to `$PATH/dm_tutorial`,
+ where `$PATH` — path to the dm_tutorial directory. Then write 
 ```bash
-$ node progress_discard.js
+$ node lecture_selector.js
 ```
+Then follow the given instructions
