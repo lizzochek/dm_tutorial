@@ -47,7 +47,7 @@ const Reacting = data => {
     if (data === 0) progress.forEach(obj => obj.progress = false);
     else {
       for (let i = data; i < progress.length; i++) {
-        progress[i] = false;
+        progress[i].progress = false;
       }
     }
     react = 'При наступному запуску програми відкриється обрана вами лекція\n';
