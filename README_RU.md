@@ -23,20 +23,6 @@ $ node main.js
 
 ## Пройти лекцию снова
 
-Для того, чтобы заново пройти лекцию или тест, перейдите в `$PATH/dm_tutorial/progress.json`,
- где `$PATH` — путь к директории dm_tutorial, и измените поле `progress` нужной лекции/теста на
-`false`. Если вы хотите снова прочесть вступительную лекцию, вам нужно изменить поле 
-`progress` объекта, который в поле `path` хранит путь к этой лекции:
-
-```javascript
-    {
-        "path": "./db/Semester1/introduction/introductory_lection.txt",
-        "isQuiz": false,
-        "progress": false
-    }
-```
-## Начать заново
-
 Если вы хотите сбросить пройти лекцию, которую вы проходили ранее, в `$PATH/dm_tutorial`, где 
 `$PATH` — путь к директории dm_tutorial. Затем введите в консоли:
 ```bash

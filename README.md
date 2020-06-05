@@ -23,21 +23,6 @@ of quiz you you haven't passed yet.
 
 ## Starting a lecture again
 
-To start any other lection or quiz again go to the `$PATH/dm_tutorial/progress.json`, where 
-`$PATH` — path to the dm_tutorial directory, and change the progress of the needed part to
-`false`. If you want to read the introductory lecture again you have to change 
-the `progress` field in the object which has a pass to this lecture:
-
-```javascript
-    {
-        "path": "./db/Semester1/introduction/introductory_lection.txt",
-        "isQuiz": false,
-        "progress": false
-    }
-```
-
-## Discarding progress
-
 If you want to start from the lecture you previously tried to complete  go to `$PATH/dm_tutorial`,
  where `$PATH` — path to the dm_tutorial directory. Then write 
 ```bash
