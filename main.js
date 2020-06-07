@@ -2,8 +2,9 @@
 
 const fs = require('fs');
 const childProcess = require('child_process');
+const { getFullPath } = require('./lib/path_resolver');
 
-const path = require('path').resolve(__dirname, './progress.json');
+const path = getFullPath(__dirname, './progress.json');
 const file = require('fs').readFileSync(path, 'utf8');
 const progress = JSON.parse(file);
 
@@ -29,10 +30,10 @@ function childProcessor(isQuiz) {
   });
 }
 
-
+/*
 const getFullPath = path =>
   require('path').resolve(__dirname, path);
-
+*/
 let index;
 
 for (let j = 0; j < progress.length; j++) {
@@ -46,7 +47,7 @@ function increment() {
   if (index < progress.length) {
     progress[index].progress = true;
     let obj = progress[index];
-    let fullPath = getFullPath(obj.path);
+    let fullPath = getFullPath(__dirname, obj.path);;
     fs.writeFileSync('./lib/current_path.txt', fullPath);
     childProcessor(obj.isQuiz);
     index++;
